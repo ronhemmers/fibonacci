@@ -26,13 +26,17 @@ pipeline {
                 }
             }
         }
-        //stage('Relative path') {
-        //    steps {
-        //        script {
-        //            ./scripts/fibonacci.sh ${env.NUMBER}"
-        //        }
-        //    }
-        //}
+        stage('Relative path') {
+            steps {
+                script {
+                    if(isUnix()) {
+                        ./scripts/fibonacci.sh ${env.NUMBER}
+                    } else {
+                        start cmd.exe /c .\scripts\fibonacci.sh env.NUMBER
+                    }                    
+                }
+            }
+        }
         //stage('Full path') {
         //    steps {
         //        script {
