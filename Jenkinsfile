@@ -33,7 +33,7 @@ pipeline {
                         sh returnStdout: true, script: "./scripts/fibonacci.sh ${env.NUMBER}"
                     } else {
                         //.\scripts\fibonacci.sh env.NUMBER
-                        bat returnStdout: true, script: ".\scripts\fibonacci.sh env.NUMBER"
+                        bat returnStdout: true, script: ".\\scripts\\fibonacci.sh env.NUMBER"
                     }                    
                 }
             }
