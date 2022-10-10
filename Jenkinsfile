@@ -19,7 +19,10 @@ pipeline {
                 script {
                     if(isUnix()) {
                         chmod +x ./scripts/fibonacci.sh
-                    }
+                        echo "UNIX SYSTEM!"
+                    } else {
+                        echo "WINDOWS SYSTEM!"
+                    }                    
                 }
             }
         }
