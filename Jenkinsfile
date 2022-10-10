@@ -49,14 +49,20 @@ pipeline {
                 }
             }
         }
-        //stage('Change directory') {
-        //    steps {
-        //        script {
-        //            dir("${env.WORKSPACE}/scripts"){
-        //                ./fibonacci.sh ${env.NUMBER}"
-        //            }
-        //        }
-        //    }
-        //}
+        stage('Change directory') {
+            steps {
+                script {
+                    if(isUnix()) {
+                        dir("${env.WORKSPACE}/scripts") {
+                            sh returnStdout: true, script: "./fibonacci.sh ${env.NUMBER}"
+                        }
+                    } else {
+                        dir("${env.WORKSPACE}/scripts") {
+                            bat returnStdout: true, script: ".\\fibonacci.sh ${env.NUMBER}"
+                        }
+                    }                   
+                }
+            }
+        }
     }
 }
