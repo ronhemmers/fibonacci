@@ -50,7 +50,7 @@ pipeline {
                         sh returnStdout: true, script: "${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}"
                     } else {
                         def output = bat returnStdout: true, script: "${env.WORKSPACE}\\scripts\\fibonacci.bat ${env.NUMBER}"
-                        echo output
+                        //echo output
                     }                   
                 }
             }
