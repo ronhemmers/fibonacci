@@ -49,8 +49,8 @@ pipeline {
                     if(isUnix()) {
                         sh returnStdout: true, script: "${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}"
                     } else {
-                        def output = bat returnStdout: true, script: "${env.WORKSPACE}\\scripts\\fibonacci.bat ${env.NUMBER}"
-                        //echo output
+                        def output = bat(script: "${env.WORKSPACE}\\scripts\\fibonacci.bat ${env.NUMBER}", returnStdout: true)
+                        println(output)
                     }                   
                 }
             }
@@ -64,7 +64,8 @@ pipeline {
                         }
                     } else {
                         dir("${env.WORKSPACE}/scripts") {
-                            bat returnStdout: true, script: ".\\fibonacci.bat ${env.NUMBER}"
+                            def output = bat(script: ".\\fibonacci.bat ${env.NUMBER}", returnStdout: true)
+                            println(output)
                         }
                     }                   
                 }
