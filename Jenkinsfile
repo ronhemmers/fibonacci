@@ -32,8 +32,8 @@ pipeline {
                     if(isUnix()) {
                         sh returnStdout: true, script: "./scripts/fibonacci.sh ${env.NUMBER}"
                     } else {
-                        start cmd.exe /c .\scripts\fibonacci.sh env.NUMBER
-                        //def output = bat returnStdout: true, script: "dir \"${JENKINS_HOME}\" /b /A:D"
+                        start cmd.exe /c ./scripts/fibonacci.sh env.NUMBER
+                        //bat returnStdout: true, script: "dir .\scripts\fibonacci.sh env.NUMBER"
                     }                    
                 }
             }
