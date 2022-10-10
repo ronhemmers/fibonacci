@@ -17,32 +17,32 @@ pipeline {
         stage('Make executable') {
             steps {
                 script {
-                    chmod +x ./scripts/fibonacci.sh'
+                    chmod +x ./scripts/fibonacci.sh
                 }
             }
         }
-        stage('Relative path') {
-            steps {
-                script {
-                    ./scripts/fibonacci.sh ${env.NUMBER}"
-                }
-            }
-        }
-        stage('Full path') {
-            steps {
-                script {
-                    ${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}"
-                }
-            }
-        }
-        stage('Change directory') {
-            steps {
-                script {
-                    dir("${env.WORKSPACE}/scripts"){
-                        ./fibonacci.sh ${env.NUMBER}"
-                    }
-                }
-            }
-        }
+        //stage('Relative path') {
+        //    steps {
+        //        script {
+        //            ./scripts/fibonacci.sh ${env.NUMBER}"
+        //        }
+        //    }
+        //}
+        //stage('Full path') {
+        //    steps {
+        //        script {
+        //            ${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}"
+        //        }
+        //    }
+        //}
+        //stage('Change directory') {
+        //    steps {
+        //        script {
+        //            dir("${env.WORKSPACE}/scripts"){
+        //                ./fibonacci.sh ${env.NUMBER}"
+        //            }
+        //        }
+        //    }
+        //}
     }
 }
