@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     if(isUnix()) {
-                        chmod +x ./scripts/fibonacci.sh
+                        sh returnStdout: true, script: "chmod +x ./scripts/fibonacci.sh"
                         echo "UNIX SYSTEM!"
                     } else {
                         echo "WINDOWS SYSTEM!"
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     if(isUnix()) {
-                        ./scripts/fibonacci.sh ${env.NUMBER}
+                        sh returnStdout: true, script: "./scripts/fibonacci.sh ${env.NUMBER}"
                     } else {
                         start cmd.exe /c .\scripts\fibonacci.sh env.NUMBER
                     }                    
