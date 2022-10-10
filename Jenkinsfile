@@ -37,7 +37,7 @@ pipeline {
                         def output = bat(script: ".\\scripts\\fibonacci.sh ${env.NUMBER}", returnStdout: true).trim()
                         def result = output.readLines().drop(1).join(" ")
                         //println(output)
-                        return result
+                        echo result
                     }                    
                 }
             }
