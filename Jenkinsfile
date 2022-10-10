@@ -34,8 +34,8 @@ pipeline {
                     } else {
                         //.\scripts\fibonacci.sh env.NUMBER
                         //def output = bat returnStdout: true, script: ".\\scripts\\fibonacci.sh env.NUMBER"
-                        def output = sh(script: ".\\scripts\\fibonacci.sh env.NUMBER", returnStdout: true).trim()
-                        echo output
+                        stdout = bat(script: ".\\scripts\\fibonacci.sh env.NUMBER", returnStdout: true)
+                        println(stdout)
                     }                    
                 }
             }
