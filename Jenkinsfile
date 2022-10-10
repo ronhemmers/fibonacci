@@ -38,13 +38,17 @@ pipeline {
                 }
             }
         }
-        //stage('Full path') {
-        //    steps {
-        //        script {
-        //            ${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}"
-        //        }
-        //    }
-        //}
+        stage('Full path') {
+            steps {
+                script {
+                    if(isUnix()) {
+                        ${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}"
+                    } else {
+                        bat returnStdout: true, script: "${env.WORKSPACE}\\scripts\\fibonacci.sh ${env.NUMBER}"
+                    }                   
+                }
+            }
+        }
         //stage('Change directory') {
         //    steps {
         //        script {
