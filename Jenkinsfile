@@ -42,7 +42,7 @@ pipeline {
             steps {
                 script {
                     if(isUnix()) {
-                        ${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}"
+                        sh returnStdout: true, script: "${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}"
                     } else {
                         bat returnStdout: true, script: "${env.WORKSPACE}\\scripts\\fibonacci.sh ${env.NUMBER}"
                     }                   
